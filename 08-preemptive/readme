@@ -1,3 +1,19 @@
+==================================== changes
+the original project is riscv-operating-system-mooc-main/08-preemptive,
+I have do some changes to run in qemu-system-riscv64
+(1)change file:
+ Makefile
+ os.ld
+ start.S
+ entry.S
+ 
+(2)change function
+trap_handler of trap.c
+
+(3)change data structure
+types.h:reg_t
+os.h: struct context
+
 # qemu-system-riscv64 -M virt -kernel kernel.img -bios none -serial stdio -display none
 Press Ctrl-A and then X to exit QEMU
 ------------------------------------

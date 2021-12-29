@@ -1,0 +1,55 @@
+==================================== changes
+the original project is riscv-operating-system-mooc-main/11-syscall
+I have do some changes to run in qemu-system-riscv64
+(1)change file:
+ Makefile
+ os.ld
+ start.S(must change ,or else there is no ouput)
+ entry.S
+ 
+(2)change function
+trap_handler of trap.c
+do_syscall: uint64_t syscall_num = cxt->a7;
+
+```
+        # call the C trap handler in trap.c
+        csrr    a0, mepc
+        csrr    a1, mcause
+        csrr    a2, mscratch ######## add a parameter
+        call    trap_handler
+```
+(3)change data structure
+types.h: change typedef uint64_t reg_t
+os.h: add struct context
+page.c:from extern uint32_t   to  extern uint64_t
+riscv.h: add PMP_XX
+
+```
+------------------------------------
+Hello, RVOS!
+Task 0: Created!
+Sync exceptions!, code = 8
+System call from U-mode!
+syscall no: 1
+--> sys_gethid, arg0 = 0x80002977
+system call returned!, hart id is 0
+Task 0: Running... 
+Task 0: Running... 
+timer interruption!
+tick: 1
+Task 1: Created!
+Task 1: Running... 
+Task 1: Running... 
+timer interruption!
+tick: 2
+Task 0: Running... 
+timer interruption!
+tick: 3
+Task 1: Running... 
+timer interruption!
+tick: 4
+Task 0: Running... 
+timer interruption!
+tick: 5
+Task 1: Running... 
+```

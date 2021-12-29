@@ -1,3 +1,24 @@
+
+```
+sys_switch:
+        reg_save a0  # a0 => struct context *old
+        csrw    mscratch, a1
+        mv      t6, a1
+        reg_load t6  # a1 => struct context *new
+        ret          # pc=ra; swtch to new task (new->ra)
+```
+(1) to save context so that trap_vector can know current context
+csrw    mscratch, a1 
+
+(2) to avoid iilegal instruciton exceptions, because   reg_load  a1 will  execute : ld a0, 72(\base), this will change 
+the value of a1.  so   use  reg_load t6
+ mv      t6, a1
+ reg_load t6  # a1 => struct context *new
+
+
+
+
+
 ```
 qemu-system-riscv64 -version
 QEMU emulator version 6.1.0

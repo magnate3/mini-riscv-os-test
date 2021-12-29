@@ -12,8 +12,10 @@ csrw    mscratch, a1
 
 (2) to avoid iilegal instruciton exceptions, because   reg_load  a1 will  execute : ld a0, 72(\base), this will change 
 the value of a1.  so   use  reg_load t6
+```
  mv      t6, a1
  reg_load t6  # a1 => struct context *new
+ ```
 
 
 

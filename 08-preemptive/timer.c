@@ -3,8 +3,9 @@
 extern void schedule(void);
 
 /* interval ~= 1s */
-#define TIMER_INTERVAL 200
+//#define TIMER_INTERVAL 200
 //#define TIMER_INTERVAL CLINT_TIMEBASE_FREQ
+#define TIMER_INTERVAL (0xfffff * 5)
 
 static uint32_t _tick = 0;
 

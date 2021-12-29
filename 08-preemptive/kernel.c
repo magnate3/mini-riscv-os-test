@@ -24,7 +24,7 @@ void start_kernel(void)
 
 	plic_init();
 
-	//timer_init();
+        timer_init();
 
 	sched_init();
 

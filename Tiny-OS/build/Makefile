@@ -1,7 +1,8 @@
 # Cross compiler for risc v
-TOOLCHAIN = riscv64-unknown-linux-gnu
+TOOLCHAIN = riscv64-linux-gnu
 
 CC = $(TOOLCHAIN)-gcc
+LD = $(TOOLCHAIN)-ld
 
 OPT_C_FLAGS = -O0 -g -ggdb3
 WARN_C_FLAGS = 
@@ -33,7 +34,9 @@ DEBUG_OPTS = -gdb tcp::1234 -S
 
 build: $(OBJECTS) $(HEADERS)
 		echo $(OBJCTS)
-		$(CC) $(C_FLAGS) -T linker.ld -o $(KERNEL_OUT) $(OBJECTS)
+		#$(CC) $(C_FLAGS) -T linker.ld -o $(KERNEL_OUT) $(OBJECTS)
+		$(LD)  -T linker.ld -o $(KERNEL_OUT) $(OBJECTS)
+		#$(LD) $(C_FLAGS) -T linker.ld -o $(KERNEL_OUT) $(OBJECTS)
 
 $(OBJECT_DIR)/%.o: $(SRC)/%.S
 				mkdir -p $(@D)

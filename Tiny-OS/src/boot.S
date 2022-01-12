@@ -7,7 +7,8 @@
 #                   sets up the kernel stack and then calls init (a C procedure)
 ########################################################################################################################
 
-.section .text
+#.section .text
+.section .text.start
 
 # Define start procedure for the bootloader
 .global _start
@@ -60,6 +61,10 @@ _start:
     # Now calculate kernel_stack + ((hartid + 1) * 4096) and set sp = kernel_stack + ((hartid + 1) * 4096).
     add sp, sp, t0
 
+    li      t0, 0xffffffff
+    csrw    pmpaddr0, t0
+    li      t0, 0xf
+    csrw    pmpcfg0, t0
     # The stack is now initialized and we can preceed to calling init.
 
     # Call init. This is our kernel's setup procedure before calling main.

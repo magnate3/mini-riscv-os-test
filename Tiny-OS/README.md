@@ -40,6 +40,8 @@ Continuing.
 (gdb) n
 ```
 
+
+change  linker.ld
 ```
  linker.ld 
     .text :
@@ -53,6 +55,7 @@ Continuing.
         PROVIDE(__TEXT_END = .);
     } >ram
 ```
+change  src/boot.S
 
 ```
 cat ../src/boot.S

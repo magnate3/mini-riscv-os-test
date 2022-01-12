@@ -16,7 +16,7 @@ add access  mem  permission
 
 # problem2 
 
-
+![can not enter _start](https://github.com/magnate3/mini-riscv-os-test/blob/main/Tiny-OS/pic/start.png)
 
 ```
 0x0000000000001000 in ?? ()
@@ -26,7 +26,7 @@ Breakpoint 2 at 0x8000020c: file ../src/boot.S, line 18.
 (gdb) c
 Continuing.
 ```
-
+![can not enter init](https://github.com/magnate3/mini-riscv-os-test/blob/main/Tiny-OS/pic/init.png)
 
 ```
 (gdb) n
@@ -62,7 +62,7 @@ cat ../src/boot.S
 
 ```
 
-# problem2 run
+#  run
 
 ```
 qemu-system-riscv64 -machine virt -m 128M -nographic -serial mon:stdio -kernel kernel -bios none

@@ -23,14 +23,14 @@ riscv64-linux-gnu-gdb -x debug.txt
 ```
 ## mmu
 
-- pagetable_t k_pagetable;
+### pagetable_t k_pagetable;
 
--- (1)init
+#### (1)init
 ```
 void kvminit() {
     k_pagetable = (pagetable_t)kalloc()
 ```
--- (2) set satp with  k_pagetable
+#### (2) set satp with  k_pagetable
 
 ```
 void kvminithart() {

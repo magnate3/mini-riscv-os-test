@@ -2,8 +2,8 @@
 #define UART_H
 
 #include <stdint.h>
-// #define UART0DR (volatile unsigned char*)0x10010000
-#define UART0DR (volatile unsigned char*)0x10013000
+#define UART0DR (volatile unsigned char*)0x10010000
+//#define UART0DR (volatile unsigned char*)0x10013000
 #define UART0_CLOCK_FREQ         1843200 
 #define UART0_BAUD_RATE          115200
 #define NS16550A_UART0_CTRL_ADDR 0x10000000

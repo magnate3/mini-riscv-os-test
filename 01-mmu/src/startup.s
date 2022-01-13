@@ -16,6 +16,10 @@ _start:
     # initialize global pointer
     la gp, _gp
   
+    li      t0, 0xffffffff
+    csrw    pmpaddr0, t0
+    li      t0, 0xf
+    csrw    pmpcfg0, t0
     # initialize stack pointer
     la sp, stack_top
     call   start

@@ -8,10 +8,10 @@
 
 int main() {
     uart_init();
-    kinit();
-    kvminit();
-    kvminithart();
-    paginginit();
+    //kinit();
+    //kvminit();
+    //kvminithart();
+    //paginginit();
     print_s("Hello world!\n");
     print_s("Raise exception to enable timer...\n");
     print_s("Back to user mode\n");
